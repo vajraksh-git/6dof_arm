@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  ros2_planner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: 6dof_arm_container
+    network_mode: host
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      # Mount whole host repo into container's ROS workspace
+      - .:/ros2_ws/src/6dof_arm
+      # Mount X11 display socket for RViz rendering
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    stdin_open: true
+    tty: true
+    ipc: host

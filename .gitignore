@@ -1,0 +1,16 @@
+# ROS 2 / colcon build artifacts
+build/
+install/
+log/
+
+# Python junk
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code workspace settings
+.vscode/
+
+# OS generated files
+.DS_Store
